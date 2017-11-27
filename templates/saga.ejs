@@ -22,7 +22,7 @@ export function * get<%= props.name %> (api, action) {
   const response = yield call(api.get<%= camelCase(props.name) %>, data)
 
   // success?
-  if (response.ok) {
+  if (response.status === 200) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
     yield put(<%= props.name %>Actions.<%= camelCase(props.name) %>Success(response.data))
